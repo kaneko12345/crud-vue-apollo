@@ -181,8 +181,8 @@ export default class Form extends Vue {
 
     formData.append('fileUpload', this.input_image!);
     const queryparams = qs.stringify({
-      key: 'AKZAUYjmyRW6UeAAceUXbz',
-      path: `1957c18a67a34ea3b67b81668514dbfb-master/${uniqueIdentifier}_${this.input_image!.name}`,
+      key: process.env.CMS_KEY,
+      path: `${process.env.CMS_PATH}/${uniqueIdentifier}_${this.input_image!.name}`,
     });
     console.log(queryparams);
     try {
