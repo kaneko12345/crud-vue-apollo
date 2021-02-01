@@ -1,0 +1,8 @@
+type Query {
+  "wine": Wine!
+}
+
+type Wine {
+  "id": ID!
+  "title": String
+}

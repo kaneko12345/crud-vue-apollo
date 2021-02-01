@@ -1,19 +1,44 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-content>
+      <router-view/>
+    </v-content>
+    <v-snackbar v-model="snackbar" :timeout="2000" :color="snackbarColor" top>
+      {{ snackbarMessage }}
+      <v-btn dark text @click="snackbar = false">
+        Close
+      </v-btn>
+    </v-snackbar>
+  </v-app>
 </template>
 
-<style lang="stylus">
-#app
-  font-family 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
-  margin-top 60px
-</style>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import appModule from '@/store/modules';
+
+@Component({
+  computed: {
+    snackbar: {
+      get() {
+        return appModule.isSnackbarDisplayed;
+      },
+      set(val: boolean) {
+        if (!val) {
+          appModule.hideSnackbar();
+        }
+      },
+    },
+    snackbarColor() {
+      return appModule.snackbarDisplayColor;
+    },
+    snackbarMessage() {
+      return appModule.snackbarDisplayMessage;
+    },
+  },
+})
+
+export default class App extends Vue {
+
+}
+
+</script>

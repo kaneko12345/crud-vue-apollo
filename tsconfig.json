@@ -13,7 +13,11 @@
     "baseUrl": ".",
     "types": [
       "webpack-env",
-      "jest"
+      "jest",
+      "vuetify",
+      "graphql",
+      "vue-cli-plugin-apollo",
+      "vuejsdialog",
     ],
     "paths": {
       "@/*": [
