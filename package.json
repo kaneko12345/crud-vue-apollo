@@ -15,7 +15,7 @@
     "axios": "^0.18.0",
     "core-js": "^3.4.3",
     "graphql": "^14.6.0",
-    "qs": "^6.9.1",
+    "qs": "^6.9.7",
     "register-service-worker": "^1.6.2",
     "subscriptions-transport-ws": "^0.9.16",
     "vue": "^2.6.10",
